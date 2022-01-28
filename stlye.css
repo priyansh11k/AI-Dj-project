@@ -8,8 +8,15 @@
     color: black;
     }
     canvas{
-        background-color: #000000;
+        background-color: white;
         border: 5px solid white;
         border-radius: 20px;
         box-shadow: 5px 5px 5px grey;
         }
+
+    #song_name{
+    box-shadow: 5px 5px 5px grey;
+    font-size: 20px;
+    margin-top: 25px;
+    padding: 5px;
+    }
