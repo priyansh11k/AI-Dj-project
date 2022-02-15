@@ -6,6 +6,9 @@ leftWristY = "";
 rightWristY = "";
 scoreLeftWrist = 0;
 song_beliver = "";
+song_harry = "";
+scoreRightWrist = "";
+
 
 
 function preload(){
@@ -34,17 +37,27 @@ stroke("#ff0000");
 song_beliver = beliver.isPlaying();
 console.log(song_beliver);
 
+song_harry = harry.isPlaying();
+console.log(song_harry);
+
 if(scoreLeftWrist>0.2){
 circle(leftWristX,leftWristY,20);
 harry.stop();
-if(song_beliver = false){
+if(song_beliver == false){
 beliver.play();
-
-}
-else{
 document.getElementById("song_name").innerHTML = "Song name : Believer";
 }
 }
+
+if(scoreRightWrist>0.2){
+  circle(rightWristX,rightWristY,20);
+  beliver.stop();
+  if(song_harry == false){
+  harry.play();
+  document.getElementById("song_name").innerHTML = "Song name : Harry Poter";
+  }
+  }
+
 }
 
 function modelLoaded(){
@@ -58,9 +71,14 @@ function modelLoaded(){
       scoreLeftWrist = results[0].pose.keypoints[9].score;
       console.log(scoreLeftWrist);
 
+      scoreRightWrist = results[0].pose.keypoints[10].score;
+      console.log(scoreRightWrist);
+
     leftWristX = results[0].pose.leftWrist.x;
     leftWristY = results[0].pose.leftWrist.y;
     console.log("left wrist x = " + leftWristX + "left wrist y = " + leftWristY);
+
+
 
     rightWristX = results[0].pose.rightWrist.x;
     rightWristY = results[0].pose.rightWrist.y;
